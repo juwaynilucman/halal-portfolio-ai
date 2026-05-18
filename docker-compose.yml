@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${POSTGRES_DB:-halal_portfolio}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-user}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-user}:${POSTGRES_PASSWORD:-password}@db:5432/${POSTGRES_DB:-halal_portfolio}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      CHROMA_PERSIST_DIR: /app/chroma_db
+      NUM_DIVIDEND_COMPANIES: ${NUM_DIVIDEND_COMPANIES:-30}
+      NUM_GROWTH_COMPANIES: ${NUM_GROWTH_COMPANIES:-20}
+      LLM_MODEL: ${LLM_MODEL:-claude-sonnet-4-6}
+    volumes:
+      - chroma_data:/app/chroma_db
+    command: uvicorn src.api.main:app --host 0.0.0.0 --port 8000
+
+volumes:
+  postgres_data:
+  chroma_data:

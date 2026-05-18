@@ -1,0 +1,107 @@
+[
+  {
+    "id": "portfolio-001",
+    "category": "portfolio",
+    "query": "What sectors have the highest allocation in my current portfolio?",
+    "expected_answer_snippet": "sector",
+    "notes": "Should name at least two sectors and their weight percentages from the portfolio collection."
+  },
+  {
+    "id": "portfolio-002",
+    "category": "portfolio",
+    "query": "How many stocks do I currently hold in the Technology sector?",
+    "expected_answer_snippet": "Technology",
+    "notes": "Should retrieve from the portfolio collection and return an integer count."
+  },
+  {
+    "id": "portfolio-003",
+    "category": "portfolio",
+    "query": "Which stocks were removed from my portfolio in the last redistribution?",
+    "expected_answer_snippet": "redistribution",
+    "notes": "Should retrieve from the portfolio redistribution report."
+  },
+  {
+    "id": "portfolio-004",
+    "category": "portfolio",
+    "query": "What is the total amount of money allocated to dividend stocks vs growth stocks?",
+    "expected_answer_snippet": "dividend",
+    "notes": "Should distinguish between SCHD/VYMI (dividend) and IVW (growth) allocations."
+  },
+  {
+    "id": "purification-001",
+    "category": "purification",
+    "query": "How much should I purify from my dividends this quarter?",
+    "expected_answer_snippet": "purification",
+    "notes": "Should retrieve the quarterly purification amounts from the portfolio collection."
+  },
+  {
+    "id": "purification-002",
+    "category": "purification",
+    "query": "What is purification in Islamic finance and why is it required?",
+    "expected_answer_snippet": "non-permissible",
+    "notes": "Should explain the concept of tazkiyah and why mixed-income stocks require it."
+  },
+  {
+    "id": "purification-003",
+    "category": "purification",
+    "query": "Which of my stocks require purification and what percentage?",
+    "expected_answer_snippet": "purification_pct",
+    "notes": "Should list stocks classified as 'mixed' and their non-permissible income fractions."
+  },
+  {
+    "id": "islamic-finance-001",
+    "category": "islamic_finance",
+    "query": "What makes a stock halal according to Islamic finance principles?",
+    "expected_answer_snippet": "AAOIFI",
+    "notes": "Should reference the three AAOIFI screens: qualitative, debt ratio, and non-permissible income."
+  },
+  {
+    "id": "islamic-finance-002",
+    "category": "islamic_finance",
+    "query": "What is riba and why are conventional banks considered haram?",
+    "expected_answer_snippet": "interest",
+    "notes": "Should explain riba (interest) and why Financial Services sector is typically excluded."
+  },
+  {
+    "id": "islamic-finance-003",
+    "category": "islamic_finance",
+    "query": "What is the debt-to-assets ratio threshold for halal screening?",
+    "expected_answer_snippet": "33%",
+    "notes": "Should state the AAOIFI 33% threshold for interest-bearing debt to total assets."
+  },
+  {
+    "id": "islamic-finance-004",
+    "category": "islamic_finance",
+    "query": "Can I invest in tech companies like Apple and Microsoft?",
+    "expected_answer_snippet": "Technology",
+    "notes": "Should explain that tech companies are often halal subject to ratio screening."
+  },
+  {
+    "id": "etf-001",
+    "category": "etf",
+    "query": "What is SCHD and why is it used for dividend investing?",
+    "expected_answer_snippet": "Schwab",
+    "notes": "Should explain SCHD's strategy: dividend focus, quality screen, high yield."
+  },
+  {
+    "id": "etf-002",
+    "category": "etf",
+    "query": "What is the difference between SCHD and VYMI?",
+    "expected_answer_snippet": "international",
+    "notes": "Should contrast SCHD (US dividend) with VYMI (international high dividend yield)."
+  },
+  {
+    "id": "etf-003",
+    "category": "etf",
+    "query": "Why is IVW included alongside dividend ETFs?",
+    "expected_answer_snippet": "growth",
+    "notes": "Should explain that IVW adds capital appreciation (growth) to balance the dividend focus."
+  },
+  {
+    "id": "rebalancing-001",
+    "category": "rebalancing",
+    "query": "How often should I rebalance my halal portfolio?",
+    "expected_answer_snippet": "quarterly",
+    "notes": "Should state the quarterly redistribution cadence and why it aligns with ETF reporting."
+  }
+]
